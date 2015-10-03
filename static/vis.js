@@ -3,13 +3,13 @@ $(document).ready( function() {
 //  for (var i=0; i < 5; i++) {
 //    A.push(Math.ceil(Math.random()*10));
 //  }
-  var A = [6,9,3,0];
+  var A = [6,4,8,9,2,2,9,3,0];
 
   var width = $(window).width()
   var height = ($(window).height())*1/3;
 
   //window.onload = drawsvg(height, width, A);
-  window.onload = merge(A);
+  window.onload = merge(A, A, 0);
   console.log(A);
 });
 
