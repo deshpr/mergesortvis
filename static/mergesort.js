@@ -24,26 +24,26 @@ function merge(svg, orig, A, start, i, l, r, right, left, callback) {
         if (left[l] <= right[r]) {
           A[i] = left[l];
           updatevis(svg, orig, A, start);
-          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l+1, r, right, left, callback), 1000);
+          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l+1, r, right, left, callback), 10);
 
         }
         else if (left[l] > right[r]) {
           A[i] = right[r];
           updatevis(svg, orig, A, start);
-          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l, r+1, right, left, callback), 1000);
+          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l, r+1, right, left, callback), 10);
         }
       } else {
         if (r < right.length) {
           //only increment r
           A[i] = right[r]
           updatevis(svg, orig, A, start);
-          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l, r+1, right, left, callback), 1000);
+          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l, r+1, right, left, callback), 10);
         }
         else if (l < left.length) {
           //only increment l
           A[i] = left[l];
           updatevis(svg, orig, A, start);
-          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l+1, r, right, left, callback), 1000);
+          setTimeout(merge.bind(null, svg, orig, A, start, i+1, l+1, r, right, left, callback), 10);
         }
      }
    } else {

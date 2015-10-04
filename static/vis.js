@@ -1,9 +1,8 @@
 $(document).ready( function() {
-//  var A = [];
-//  for (var i=0; i < 5; i++) {
-//    A.push(Math.ceil(Math.random()*10));
-//  }
-  var A = [9,8,7,6,5,4,3,2,1];
+  var A = [];
+  for (var i=0; i < 300; i++) {
+    A.push(Math.ceil(Math.random()*100));
+  }
 
   var width = $(window).width()
   var height = ($(window).height())*1/3;
@@ -18,7 +17,6 @@ function drawsvg(height, width, data) {
   svg.setyscale(d3.max(data), height);
   setTimeout(svg.drawsvg.bind(null, data), 10);
   split(svg, data, data, 0, function(a) {
-    console.log(a);
     svg.drawsvg(a);
   });
 }
