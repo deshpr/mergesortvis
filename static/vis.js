@@ -3,14 +3,15 @@ $(document).ready( function() {
 //  for (var i=0; i < 5; i++) {
 //    A.push(Math.ceil(Math.random()*10));
 //  }
-  var A = [6,4,8,9,2,2,9,3,0];
+  var A = [9,8,7,6,5,4,3,2,1];
 
   var width = $(window).width()
   var height = ($(window).height())*1/3;
 
   //window.onload = drawsvg(height, width, A);
-  window.onload = merge(A, A, 0);
-  console.log(A);
+  window.onload = split(A, A, 0, function(a) {
+    console.log(a);
+  });
 });
 
 function drawsvg(height, width, data) {
