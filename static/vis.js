@@ -8,16 +8,16 @@ $(document).ready( function() {
   var height = ($(window).height())*1/3;
 
   window.onload = drawsvg(height, width, A);
+
 });
 
 function drawsvg(height, width, data) {
-  console.log(data);
   var svg = new bars(height, width);
   svg.setxscale(data.length, width);
   svg.setyscale(d3.max(data), height);
-  setTimeout(svg.drawsvg.bind(null, data), 10);
-  split(svg, data, data, 0, function(a) {
-    svg.drawsvg(a);
+  setTimeout(svg.drawsvg.bind(null, 0, data), 10);
+  split(0, svg, data, data, 0, function(a) {
+    svg.drawsvg(0, a);
   });
 }
 
@@ -67,7 +67,21 @@ bars.prototype.setdata = function(A) {
               });
 };
 
-bars.prototype.drawsvg = function(data) {
+bars.prototype.depthdict = {
+10: "#000000",
+9: "#0A1A1A",
+8: "#143333",
+7: "#1F4C4C" ,
+6: "#296666",
+5: "#338080" ,
+4: "#3D9999",
+3: "#52CCCC",
+2: "#5CE6E6",
+1: "#66FFFF",
+0: "#75FFFF"};
+
+
+bars.prototype.drawsvg = function(depth, data) {
   this.createdata(data);
 
   this.bars = this.svg.selectAll("rect")
@@ -80,6 +94,7 @@ bars.prototype.drawsvg = function(data) {
     .select("rect");
 
   this.bars
+    .style("fill", function() { return this.depthdict[depth]; }.bind(this))
     .attr("x", function(d) { return this.xscale(d.i);}.bind(this))
     .attr("width", "1px")
     .attr("y", function(d) { return this.height - this.yscale(d.data); }.bind(this))
