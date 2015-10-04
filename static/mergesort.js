@@ -9,15 +9,6 @@ function updatevis(svg, orig, A, start) {
              );
 }
 
-function right(a) {
-  return a;
-}
-
-function left(a) {
-  return a;
-}
-
-
 function merge(svg, orig, A, start, i, l, r, right, left, callback) {
     if (i < A.length) {
       if (l < left.length && r < right.length) {
@@ -62,7 +53,7 @@ function split(svg, orig, A, start, callback) {
     var m = Math.ceil(A.length/2);
     split(svg, orig, A.slice(0,m), start, function(L) {
       split(svg, orig, A.slice(m, A.length), start+m, function(R) {
-        merge(svg, orig, A, start, i, l, r, right(R), left(L), callback);
+        merge(svg, orig, A, start, i, l, r, R, L, callback);
       });
     });
   }
