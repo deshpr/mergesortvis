@@ -8,10 +8,7 @@ $(document).ready( function() {
   var width = $(window).width()
   var height = ($(window).height())*1/3;
 
-  //window.onload = drawsvg(height, width, A);
-  window.onload = split(A, A, 0, function(a) {
-    console.log(a);
-  });
+  window.onload = drawsvg(height, width, A);
 });
 
 function drawsvg(height, width, data) {
@@ -20,7 +17,10 @@ function drawsvg(height, width, data) {
   svg.setxscale(data.length, width);
   svg.setyscale(d3.max(data), height);
   setTimeout(svg.drawsvg.bind(null, data), 10);
-  insertion(data, svg, height, 1);
+  split(svg, data, data, 0, function(a) {
+    console.log(a);
+    svg.drawsvg(a);
+  });
 }
 
 function bars(height, width) {
@@ -70,7 +70,6 @@ bars.prototype.setdata = function(A) {
 };
 
 bars.prototype.drawsvg = function(data) {
-  //add data state to Q
   this.createdata(data);
 
   this.bars = this.svg.selectAll("rect")
