@@ -40,7 +40,6 @@ function merge(depth, svg, orig, A, start, i, l, r, right, left, callback) {
 }
 
 function split(depth, svg, orig, A, start, callback) {
-  console.log(depth);
   if (A.length <= 1) {
     callback(A);
   } else {
@@ -51,7 +50,6 @@ function split(depth, svg, orig, A, start, callback) {
     var m = Math.ceil(A.length/2);
     split(depth+1,svg, orig, A.slice(0,m), start, function(L) {
       split(depth+1,svg, orig, A.slice(m, A.length), start+m, function(R) {
-        console.log(depth);
         merge(depth, svg, orig, A, start, i, l, r, R, L, callback);
       });
     });

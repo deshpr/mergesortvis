@@ -68,17 +68,17 @@ bars.prototype.setdata = function(A) {
 };
 
 bars.prototype.depthdict = {
-10: "#000000",
-9: "#0A1A1A",
-8: "#143333",
-7: "#1F4C4C" ,
-6: "#296666",
-5: "#338080" ,
-4: "#3D9999",
-3: "#52CCCC",
-2: "#5CE6E6",
-1: "#66FFFF",
-0: "#75FFFF"};
+                    10: "#000000",
+                    9: "#0A1A1A",
+                    8: "#143333",
+                    7: "#1F4C4C" ,
+                    6: "#296666",
+                    5: "#338080" ,
+                    4: "#3D9999",
+                    3: "#52CCCC",
+                    2: "#5CE6E6",
+                    1: "#66FFFF",
+                    0: "#75FFFF"};
 
 
 bars.prototype.drawsvg = function(depth, data) {
